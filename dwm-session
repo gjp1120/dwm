@@ -1,0 +1,20 @@
+#! /bin/sh
+
+export MPD_HOST="Yayoi@localhost"
+export MPD_PORT="15903"
+
+xset +fp /usr/share/fonts/bitmap
+xset +fp ~/.fonts
+xset fp rehash
+
+eval `cat ~/.fehbg`
+
+#run DWM
+dwm
+
+#if need restart
+while [[ $? != 0 ]]
+do
+	pkill dwmstatus
+	dwm
+done

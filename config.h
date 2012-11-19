@@ -29,9 +29,9 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
-	{ "MPlayer",  NULL, 	  NULL,       0, 	    True, 	 -1 },
-	{ "fontforge",NULL,	  NULL,	      0,	    True, 	 -1 },
-	{ "feh",      NULL,       NULL,       0,   	    True,        -1 },
+	{ "MPlayer",  NULL, 	    NULL,       0, 	          True, 	     -1 },
+	{ "fontforge",NULL,	      NULL,	      0,	          True, 	     -1 },
+	{ "feh",      NULL,       NULL,       0,   	        True,        -1 },
 };
 
 /* layout(s) */
@@ -62,18 +62,18 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]  = { "urxvtc", NULL };
 
-static const char *avolup[] = {"amixer", "set", "Master", "2%+", NULL};
-static const char *avollow[] = {"amixer", "set", "Master", "2%-", NULL};
+static const char *avolup[]   = { "amixer", "set", "Master", "2%+", NULL };
+static const char *avollow[]  = { "amixer", "set", "Master", "2%-", NULL };
 
-static const char *mpdtoggle[] = {"mpc", "toggle", NULL};
+static const char *mpdtoggle[] = { "mpc", "toggle", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_F2,     spawn,          {.v = dmenucmd } },
-	{ WINKEY,	                XK_r,      spawn,          {.v = termcmd } },
-	{ NULL,                         0x1008ff13,spawn,	   {.v = avolup} },
-	{ NULL,                         0x1008ff11,spawn,	   {.v = avollow} },
-	{ NULL,				XK_Pause,   spawn,	   {.v = mpdtoggle} },
+	{ WINKEY,	                      XK_r,      spawn,          {.v = termcmd } },
+	{ (int)NULL,                    0x1008ff13,spawn,	         {.v = avolup} },
+	{ (int)NULL,                    0x1008ff11,spawn,	         {.v = avollow} },
+	{ (int)NULL,				            XK_Pause,  spawn,	         {.v = mpdtoggle} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -83,7 +83,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,             		XK_F4,     killclient,     {0} },
+	{ MODKEY,             		      XK_F4,     killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -105,7 +105,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ShiftMask, 		XK_r,      restart,        {0}}
+	{ MODKEY|ShiftMask, 		        XK_r,      restart,        {0}}
 };
 
 /* button definitions */
